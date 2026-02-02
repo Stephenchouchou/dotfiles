@@ -112,7 +112,7 @@ dotfiles/
 - fcitx5 + fcitx5-chewing (新酷音)
 
 ### 其他工具
-- hyprpaper (桌布)
+- [awww](https://codeberg.org/LGFae/awww) (動態桌布，支援 GIF)
 - hyprlock (鎖屏)
 - hyprshot (截圖)
 - wlogout (登出選單)

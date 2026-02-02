@@ -18,3 +18,4 @@ wlogout
 wshowkeys-mao-git
 yay
 zoom
+awww-bin
