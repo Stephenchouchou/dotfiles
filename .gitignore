@@ -1,0 +1,14 @@
+# Backup files
+*.bak
+*.bak.*
+*~
+
+# Cache
+.cache/
+
+# Lazy.nvim state
+nvim/.config/nvim/lazy-lock.json
+
+# Sensitive files
+.git-credentials
+.npmrc

@@ -1,0 +1,12 @@
+{
+  "output": "DP-8",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": [],
+  "hyprland/workspaces": {
+    "output": "DP-8"
+  }
+}
+
