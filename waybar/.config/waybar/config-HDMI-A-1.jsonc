@@ -1,0 +1,89 @@
+// -*- mode: jsonc -*-
+// Waybar config for HDMI-A-1 (LG SMARTGAME+ 4K)
+{
+  "output": "HDMI-A-1",
+  "height": 40,
+  "spacing": 6,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "idle_inhibitor",
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "custom/gpu-temp",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{id}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰒳",
+      "deactivated": "󰒲"
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%Y-%m-%d %a}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "format": "󰍛 {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "󰘚 {}%"
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"]
+  },
+  "custom/gpu-temp": {
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader 2>/dev/null || echo 'N/A'",
+    "format": "󰢮 {}°C",
+    "interval": 5,
+    "tooltip-format": "GPU Temperature"
+  },
+  "network": {
+    "interface": "enp0s31f6",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "tooltip-format": "󰛳 {ifname} via {gwaddr}",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰤭 Disconnected",
+    "format-alt": "󰈀 {ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "󰂯 {volume}% {format_source}",
+    "format-bluetooth-muted": "󰂲 {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell"
+  }
+}
