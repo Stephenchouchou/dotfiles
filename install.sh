@@ -87,7 +87,7 @@ cd "$DOTFILES_DIR"
 backup_dir="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$backup_dir"
 
-for dir in hypr waybar kitty wlogout fcitx5 nvim; do
+for dir in hypr waybar kitty wlogout fcitx5 nvim kanshi; do
     if [ -d "$HOME/.config/$dir" ] && [ ! -L "$HOME/.config/$dir" ]; then
         echo "Backing up $dir to $backup_dir"
         mv "$HOME/.config/$dir" "$backup_dir/"
@@ -99,7 +99,7 @@ done
 [ -f "$HOME/.p10k.zsh" ] && [ ! -L "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$backup_dir/"
 
 # Use stow to create symlinks
-for pkg in hypr waybar kitty wlogout fcitx5 nvim; do
+for pkg in hypr waybar kitty wlogout fcitx5 nvim kanshi; do
     echo "Deploying $pkg..."
     stow -v -t "$HOME" "$pkg"
 done

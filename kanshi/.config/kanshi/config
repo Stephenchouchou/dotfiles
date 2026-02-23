@@ -1,0 +1,41 @@
+# =============================================================
+# kanshi config — Hyprland docked/undocked auto-switching
+# =============================================================
+# kanshi 會自動偵測螢幕接入/拔出，匹配對應 profile
+#
+# ★ 重要：接上 dock 後執行以下指令取得螢幕描述字串：
+#   hyprctl monitors -j | python3 -c "
+#   import json,sys
+#   for m in json.load(sys.stdin):
+#       print(f\"{m['name']:8s} → {m['description']}\")"
+#
+# 然後將下方 output "..." 裡的描述字串替換為實際值
+# 使用描述字串而非 DP-X 名稱，因為 Thunderbolt 端口名稱會變動
+# =============================================================
+
+# ----- Docked: 三外接螢幕，關閉筆電螢幕 -----
+# kanshi 用螢幕數量 + 描述來匹配 profile
+# 當偵測到 4 個螢幕（含筆電）且描述符合時，自動啟用此 profile
+profile docked {
+    # 筆電螢幕關閉
+    output eDP-1 disable
+
+    # 左螢幕（直立 portrait）— BenQ GW2480
+    output "BNQ BenQ GW2480 5CP0238501Q" mode 1920x1080@60Hz position 0,0 transform 90
+
+    # 中螢幕（主螢幕）— BenQ RD280U
+    output "BNQ BenQ RD280U 74S0033901Q" mode 3840x2560@59.98Hz position 1080,0
+
+    # 右螢幕 — BenQ GW2475H
+    # 邏輯座標：主螢幕邏輯右邊界=3480，垂直置中=(1600-1080)/2=260
+    output "BNQ BenQ GW2475H 6CP00364019" mode 1920x1080@60Hz position 3480,260
+
+    exec ~/.config/kanshi/workspace-assign.sh docked
+}
+
+# ----- Undocked: 只用筆電螢幕 -----
+profile undocked {
+    output eDP-1 enable mode 1920x1200@60Hz position 0,0 scale 1
+
+    exec ~/.config/kanshi/workspace-assign.sh undocked
+}
