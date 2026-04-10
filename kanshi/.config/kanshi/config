@@ -24,13 +24,24 @@ profile docked {
     output "BNQ BenQ GW2480 5CP0238501Q" mode 1920x1080@60Hz position 0,0 transform 90
 
     # 中螢幕（主螢幕）— BenQ RD280U
-    output "BNQ BenQ RD280U 74S0033901Q" mode 3840x2560@59.98Hz position 1080,0
+    output "BNQ BenQ RD280U 74S0033901Q" mode 3840x2560@59.98Hz position 1080,0 scale 1
 
     # 右螢幕 — BenQ GW2475H
-    # 邏輯座標：主螢幕邏輯右邊界=3480，垂直置中=(1600-1080)/2=260
-    output "BNQ BenQ GW2475H 6CP00364019" mode 1920x1080@60Hz position 3480,260
+    # 邏輯座標：主螢幕邏輯右邊界=1080+3840/1=4920，垂直置中=(2560-1080)/2=740
+    output "BNQ BenQ GW2475H 6CP00364019" mode 1920x1080@60Hz position 4920,740
 
     exec ~/.config/kanshi/workspace-assign.sh docked
+}
+
+# ----- Docked + 單 4K：LG SMARTGAME+ 主螢幕，筆電在右 -----
+profile docked-single-4k {
+    # 主螢幕（左）— LG SMARTGAME+ 4K
+    output "LG Electronics LG SMARTGAME+ 0x000AAC3C" mode 3840x2160@85.03Hz position 0,0 scale 1
+
+    # 筆電螢幕（右）— 垂直置中 (2160-1200)/2=480
+    output eDP-1 enable mode 1920x1200@60Hz position 3840,480 scale 1
+
+    exec ~/.config/kanshi/workspace-assign.sh docked-single-4k
 }
 
 # ----- Undocked: 只用筆電螢幕 -----

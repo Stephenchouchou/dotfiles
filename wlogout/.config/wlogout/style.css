@@ -26,26 +26,26 @@ button:hover {
 }
 
 #lock {
-    background-image: url("icons/lock.png");
+    background-image: image(url("/home/stephen/.config/wlogout/icons/lock.png"));
     background-size: 70%;
 }
 
 #logout {
-    background-image: url("icons/logout.png");
+    background-image: image(url("/home/stephen/.config/wlogout/icons/logout.png"));
 }
 
 #suspend {
-    background-image: url("icons/sleep.png");
-}
+    background-image: image(url("/home/stephen/.config/wlogout/icons/sleep.png"));
+} 
 
 #shutdown {
-    background-image: url("icons/power.png");
+    background-image: image(url("/home/stephen/.config/wlogout/icons/power.png"));
 }
 
 #reboot {
-    background-image: url("icons/restart.png");
+    background-image: image(url("/home/stephen/.config/wlogout/icons/restart.png"));
 }
 
 #hibernate {
-    background-image: url("icons/hibernate.png");
+    background-image: image(url("/home/stephen/.config/wlogout/icons/hibernate.png"));
 }

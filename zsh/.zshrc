@@ -122,7 +122,8 @@ alias ppk2='"$HOME/01-Tools/nrfconnect-5.2.1-x86_64.AppImage" &> /dev/null & dis
 
 # Created by `pipx` on 2025-11-12 03:54:27
 export PATH="$PATH:/home/stephen/.local/bin"
-export PATH="/home/stephen/01-Tools/dev_tools_eclipse/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin:$PATH"
+#export PATH="/home/stephen/01-Tools/dev_tools_eclipse/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin:$PATH"
+export PATH="/home/stephen/01-Tools/dev_tools_eclipse/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin:$PATH"
 onlyoffice() { nohup onlyoffice-desktopeditors "$@" >/dev/null 2>&1 & }
 alias zoom='nohup zoom >/dev/null 2>&1 &'
 alias dsview='nohup dsview >/dev/null 2>&1 &'
@@ -130,3 +131,7 @@ alias dsview='nohup dsview >/dev/null 2>&1 &'
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 export PATH="$HOME/bin:$PATH"
+
+# fnm (Node version manager)
+eval "$(fnm env)"
+fnm use 22 --silent-if-unchanged
